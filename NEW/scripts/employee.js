@@ -52,7 +52,6 @@ function updateEmployee(employeeEmail, updatedEmployee) {
     }
 }
 
-
 // removes employee from db
 function removeEmployee(employeeEmail) {
     // Retrieve the existing employees array from local storage
@@ -73,5 +72,56 @@ function removeEmployee(employeeEmail) {
     } else {
         console.error("Employee not found.");
         alert("Employee not found.")
+    }
+}
+
+// function for checking if the user is logged in
+function isUserLoggedIn() {
+    const loggedInEmployee = JSON.parse(localStorage.getItem("loggedIn"));
+    return loggedInEmployee !== null;
+}
+
+// function to logout the user
+function logout() {
+    localStorage.removeItem("loggedIn");
+    console.log("Logged out successfully.");
+}
+
+// FUNCTION FOR LOGGING THE CLIENT INTO THE SYSTEM
+function login(email, password, redirectTo) {
+    // Retrieve the existing employees array from local storage
+    const existingEmployees = JSON.parse(localStorage.getItem("employees")) || [];
+
+    // Find the employee with the specified email
+    const employee = existingEmployees.find(emp => emp.email === email);
+
+    if (employee && employee.password === password) {
+        // Correct credentials, set the session flag for the user
+        localStorage.setItem("loggedIn", JSON.stringify(employee));
+        console.log("Login successful.");
+
+        // Redirect to the desired page
+        window.location.href = redirectTo;
+    } else {
+        console.error("Login failed. Please check your credentials.");
+    }
+}
+
+// accessing employee data
+function accessEmployeeData() {
+    const loggedInEmployee = JSON.parse(localStorage.getItem("loggedIn"));
+
+    if (loggedInEmployee) {
+        // User is logged in, proceed with accessing employee data
+        console.log("Logged in user:", loggedInEmployee);
+
+        // Example: Check if the user is an admin
+        if (loggedInEmployee.isAdmin) {
+            console.log("You are an admin.");
+        } else {
+            console.log("You are not an admin.");
+        }
+    } else {
+        console.error("Access denied. Please log in.");
     }
 }
