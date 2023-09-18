@@ -18,24 +18,12 @@ loginButton.addEventListener("click", (ev) => {
     const client_email = emailInput.value.toLowerCase()
     const client_password =  passwordInput.value
 
-    // compare the password of user and db
-    const db_results = getEmployee(client_email)
-
-    // if employye not found
-    if (db_results == null) {
-        alert("employee with that email not found!")
-        return // ends the whole function
-    }
-
-    // email was found, now check for password
-    if (db_results.password == client_password) {
-        alert('yay all is good')
-        return
-    } else {
-        alert("INVALID EMAIL OR PASSWORD")
-    }
+    // login
+    login(client_email, client_password, "../dist/project-dashboard.html")
 
 })
+
+
 
 
 // create an employee so we have an account to test with
@@ -45,5 +33,6 @@ createEmployee({
     email: "stone@vobi.co.za", // email
     salary: "2000", // salary
     password: "012345",
-    isAdmin: false // determines if this is admin
+    isAdmin: false, // determines if this is admin
+    isLoggedIn: false // for checking if user login
 })
