@@ -2,24 +2,44 @@
 // WHICH IS STORED ON LOCAL STORAGE FOR NOW TO ACT AS A DATABASE
 
 // add employee to db
-function createEmployee(employee) {
+function createEmployee(name, surname, email, salary, password, isAdmin = false) {
     // Retrieve the existing employees array from local storage
-    const existingEmployees = JSON.parse(localStorage.getItem("employees"));
+    const existingEmployees = JSON.parse(localStorage.getItem("employees")) || [];
 
     // Check if an employee with the same email already exists
-    const duplicateEmployee = existingEmployees.find(emp => emp.email === employee.email);
+    const duplicateEmployee = existingEmployees.find(emp => emp.email === email);
 
     if (!duplicateEmployee) {
-        // No duplicate found, add the new employee to the array
-        existingEmployees.push(employee);
+        // No duplicate found, create the new employee
+        const newEmployee = {
+            name: name,
+            surname: surname,
+            email: email,
+            salary: salary,
+            password: password,
+            isAdmin: isAdmin,
+            isLoggedIn: false
+        };
+
+        // If the employee is an admin, set the salary to null or any other value you prefer
+        if (isAdmin) {
+            newEmployee.salary = null; // You can set it to null for no salary
+        }
+
+        // Add the new employee to the array
+        existingEmployees.push(newEmployee);
 
         // Update the employees array in local storage
         localStorage.setItem("employees", JSON.stringify(existingEmployees));
         console.log("Employee added successfully.");
+
+        return true;
     } else {
         console.error("An employee with the same email already exists.");
+        return false;
     }
 }
+
 
 
 // gets the employee from db
@@ -106,6 +126,27 @@ function login(email, password, redirectTo) {
         console.error("Login failed. Please check your credentials.");
     }
 }
+
+// check if admin is logged in
+function isAdminLoggedIn() {
+    const loggedInEmployee = JSON.parse(localStorage.getItem("loggedIn"));
+    
+    return loggedInEmployee && loggedInEmployee.isAdmin === true;
+}
+
+function getAllEmployees() {
+    if (isAdminLoggedIn()) {
+        // User is an admin, proceed with accessing all employee data
+        const allEmployees = JSON.parse(localStorage.getItem("employees")) || [];
+        console.log("All Employees:", allEmployees);
+        return allEmployees;
+    } else {
+        console.error("Access denied. You need to be logged in as an admin.");
+        return [];
+    }
+    
+}
+
 
 // accessing employee data
 function accessEmployeeData() {

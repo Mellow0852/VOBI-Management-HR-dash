@@ -23,16 +23,5 @@ loginButton.addEventListener("click", (ev) => {
 
 })
 
-
-
-
 // create an employee so we have an account to test with
-createEmployee({
-    name: "stone", // name
-    surname: "kabby", // surname
-    email: "stone@vobi.co.za", // email
-    salary: "2000", // salary
-    password: "012345",
-    isAdmin: false, // determines if this is admin
-    isLoggedIn: false // for checking if user login
-})
+createEmployee( "stone", "kabby", "stone@vobi.co.za", "2000", "012345", true)

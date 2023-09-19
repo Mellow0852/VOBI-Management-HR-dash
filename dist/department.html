@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
     <!-- project css file  -->
     <link rel="stylesheet" href="assets/css/my-task.style.min.css">
+
+    <script defer src="../NEW/scripts/employee.js"></script>
 </head>
 <body>
 
@@ -291,90 +293,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <span class="fw-bold">1</span>
-                                            </td>
-                                           <td>
-                                               <img class="avatar rounded-circle" src="assets/images/xs/avatar1.jpg" alt="">
-                                               <span class="fw-bold ms-1">Joan Dyer</span>
-                                           </td>
-                                           <td>
-                                                Web Development
-                                           </td>
-                                           <td>
-                                                40100JD
-                                           </td>
-                                            <td>
-                                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
-                                                    <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="fw-bold">2</span>
-                                            </td>
-                                            <td>
-                                                <img class="avatar rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
-                                                <span class="fw-bold ms-1">Ryan	Randall</span>
-                                            </td>
-                                            <td>
-                                                Accounts
-                                            </td>
-                                            <td>
-                                                48001RR
-                                            </td>
-                                             <td>
-                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                     <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
-                                                     <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                 </div>
-                                             </td>
-                                         </tr>
-                                         <tr>
-                                            <td>
-                                                <span class="fw-bold">3</span>
-                                            </td>
-                                            <td>
-                                                <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                                <span class="fw-bold ms-1">Phil	Glover</span>
-                                            </td>
-                                            <td>
-                                                Support
-                                            </td>
-                                            <td>
-                                                 15655PG
-                                            </td>
-                                             <td>
-                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                     <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
-                                                     <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                 </div>
-                                             </td>
-                                         </tr>
-                                         <tr>
-                                            <td>
-                                                <span class="fw-bold">4</span>
-                                            </td>
-                                            <td>
-                                                <img class="avatar rounded-circle" src="assets/images/xs/avatar4.jpg" alt="">
-                                                <span class="fw-bold ms-1">Victor Rampling</span>
-                                            </td>
-                                            <td>
-                                                App Development
-                                            </td>
-                                            <td>
-                                                39945VR
-                                            </td>
-                                             <td>
-                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                     <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
-                                                     <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                 </div>
-                                             </td>
-                                         </tr>
+                                         <!-- staff goes here  -->
                                     </tbody>
                                 </table>
                             </div>
@@ -530,18 +449,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1111" class="form-label">Eployee Name</label>
+                        <label for="exampleFormControlInput1111" class="form-label">Employee Name</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1111">
                     </div>
                     <div class="deadline-form">
                         <form>
                             <div class="row g-3 mb-3">
                               <div class="col-sm-6">
-                                <label for="depone" class="form-label">Department Name</label>
+                                <label for="depone" class="form-label">Department</label>
                                 <input type="text" class="form-control" id="depone">
                               </div>
                               <div class="col-sm-6">
-                                <label for="deptwo" class="form-label">Employee Username</label>
+                                <label for="deptwo" class="form-label">Salary</label>
                                 <input type="text" class="form-control" id="deptwo">
                               </div>
                             </div>
@@ -573,11 +492,11 @@
                         <form>
                             <div class="row g-3 mb-3">
                               <div class="col-sm-6">
-                                <label class="form-label">Department Name</label>
+                                <label class="form-label">Department</label>
                                 <input type="text" class="form-control" id="" value=""> 
                               </div>
                               <div class="col-sm-6">
-                                <label for="deptwo48" class="form-label">Employee Username</label>
+                                <label for="deptwo48" class="form-label">Salary</label>
                                 <input type="text" class="form-control" id="" value="">
                               </div>
                             </div>
@@ -599,6 +518,7 @@
 
 <!-- Plugin Js-->
 <script src="assets/bundles/dataTables.bundle.js"></script>
+<script src="../NEW/scripts/employee.js"></script>
 
 <!-- Jquery Page Js -->
 <script src="../js/template.js"></script>
@@ -623,6 +543,36 @@
 
         } );
     });
+
+    //  select the target table
+    const targetTable = document.getElementById("myProjectTable")
+
+    console.log(targetTable)
+
+    //  what to be added to the rows
+    let employeeRowTemplate = `
+    <tr>
+                                            <td>
+                                                <span class="fw-bold">{count}</span>
+                                            </td>
+                                            <td>
+                                                <img class="avatar rounded-circle" src="assets/images/xs/avatar4.jpg" alt="">
+                                                <span class="fw-bold ms-1">{name} {surname}</span>
+                                            </td>
+                                            <td>
+                                                {department}
+                                            </td>
+                                            <td>
+                                                {department}
+                                            </td>
+                                             <td>
+                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                     <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
+                                                     <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
+                                                 </div>
+                                             </td>
+                                         </tr>
+    `
 </script>
 </body>
 </html>
